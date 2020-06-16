@@ -1,0 +1,4 @@
+kafka:
+  topic:
+    simple: simple-topic
+    json: json-topic
