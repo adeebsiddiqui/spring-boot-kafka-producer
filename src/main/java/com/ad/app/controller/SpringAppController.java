@@ -1,5 +1,6 @@
 package com.ad.app.controller;
 
+import com.ad.app.model.Laptop;
 import com.ad.app.service.KafkaProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,6 +20,12 @@ public class SpringAppController {
     @PostMapping("/simple-message")
     public ResponseEntity<Void> publishStringMessage(@RequestBody String message) {
         kafkaProducer.publishMessage(message);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @PostMapping("/json-message")
+    public ResponseEntity<Void> publishStringMessage(@RequestBody Laptop laptop) {
+        kafkaProducer.publishMessage(laptop);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }
