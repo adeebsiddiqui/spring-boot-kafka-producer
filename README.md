@@ -16,5 +16,6 @@
 	`bin/windows/kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic simple-topic`
                        
 	`bin/windows/kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic json-topic`
+- View details of a topic `bin/windows/kafka-topics.bat --describe --bootstrap-server localhost:9092 --topic simple-topic`
 
 For full set of Kafka CLI instructions, view https://kafka.apache.org/quickstart
