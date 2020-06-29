@@ -1,6 +1,6 @@
 # spring-boot-kafka-producer
 
-## Setup Apache Kafka in Windows 10
+## Setup Apache Kafka in Windows 10 using CLI
 
 - Download the latest version of Apache Kafka from [here](https://kafka.apache.org/downloads).
 - Unzip the file to C drive
@@ -13,9 +13,11 @@
 - View Kafka Topic List `bin/windows/kafka-topics.bat --list --bootstrap-server localhost:9092`
 - Create Kafka Topics
 
-	`bin/windows/kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic simple-topic`
+	`bin/windows/kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 3 --topic simple-topic`
                        
-	`bin/windows/kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic json-topic`
+	`bin/windows/kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 3 --topic json-topic`
 - View details of a topic `bin/windows/kafka-topics.bat --describe --bootstrap-server localhost:9092 --topic simple-topic`
+- Publish <key,value> messages by Producer `bin/windows/kafka-console-producer.bat --bootstrap-server localhost:9092 --topic simple-topic --property "parse.key=true" --property "key.separator=:"`
+- Create Consumer(s) with consumer group id `bin/windows/kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic simple-topic --group simple-grp`
 
-For full set of Kafka CLI instructions, view https://kafka.apache.org/quickstart
+To create a multi-broker Kafka cluster using CLI, view https://kafka.apache.org/quickstart#quickstart_multibroker
